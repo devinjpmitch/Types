@@ -1,0 +1,13 @@
+[
+  {
+    "title": "House Information",
+    "fields": [
+      {
+        "label": "House Icon",
+        "name": "icon",
+        "type": "image",
+        "return_format": "array"
+      }
+    ]
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "info": {
+    "name": "hogwarts",
+    "singular": "Hogwarts",
+    "plural": "Hogwarts",
+    "slug": "hogwarts",
+    "with_front": true
+  },
+  "labels": {
+    "menu_name": "Hogwarts",
+    "add_new": "Add New Hogwarts Student",
+    "add_new_item": "Add New Hogwarts Student"
+  },
+  "options": {
+    "has_archive": false,
+    "show_in_rest": true,
+    "public": true,
+    "show_ui": true,
+    "show_in_menu": true,
+    "capability_type": "post",
+    "show_in_admin_bar": true,
+    "show_in_nav_menus": true,
+    "menu_position": 20,
+    "query_var": true,
+    "supports": [
+      "title", 
+     
+      "comments", 
+      "revisions", 
+      "trackbacks", 
+      "author", 
+      "excerpt", 
+      "page-attributes", 
+      "thumbnail", 
+      "custom-fields", 
+      "post-formats"
+    ]
+  },
+  "columns": {
+    "hide": [
+      "date",
+      "excerpt",
+      "author",
+      "comments",
+      "categories",
+      "tags",
+      "taxonomy-houses"
+    ],
+    "add": {
+      "house": "House"
+    }
+  },
+  "icon": "dashicons-admin-post"
+}

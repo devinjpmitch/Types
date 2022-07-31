@@ -1,0 +1,39 @@
+[
+    {
+      "info": {
+        "name": "houses",
+        "singular": "House",
+        "plural": "Houses",
+        "slug": "house"
+      },
+      "options": {
+        "hierarchical": false,
+        "show_in_rest": true
+      },
+      "labels": {
+        "add_new_item": "Add New House"
+      },
+      "order": {
+        "skill_icon": 2
+      },
+      "sortable": [
+        "house"
+      ],
+      "columns": {
+        "hide": [
+          "date",
+          "excerpt",
+          "author",
+          "comments",
+          "categories",
+          "tags",
+          "slug",
+          "posts",
+          "description"
+        ],
+        "add": {
+          "icon": "Icon"
+        }
+      }
+    }
+  ]

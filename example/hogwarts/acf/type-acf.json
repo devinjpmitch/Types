@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Student Information",
+    "fields": [
+      {
+        "label": "Current Classroom",
+        "name": "Current Classroom",
+        "type": "text"
+      }
+    ]
+  }
+]
