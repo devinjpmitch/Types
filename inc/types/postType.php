@@ -53,7 +53,7 @@ class PostType extends types {
             // if current custom post type has icon
             if(isset(self::$current_cpt['type']['icon'])){
                 // if custom icon add this
-                if(isset(self::$current_cpt['icon'])) self::$cpt_v->icon(self::$current_cpt['icon']);
+                if(isset(self::$current_cpt['icon']) && file_exists(self::$current_cpt['icon'])) self::$cpt_v->icon(self::$current_cpt['icon']);
                 // else use the type icon from config
                 else self::$cpt_v->icon(self::$current_cpt['type']['icon']);
             }
