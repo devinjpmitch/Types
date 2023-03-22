@@ -31,10 +31,12 @@ class PostType extends types {
                     self::$cpt_v->columns()->add($key, $column);
                     // check column callback
                     $populate = self::$current_dir . '/columns/type-' . $key . '.php';
+                    if(!file_exists($populate)) $populate = self::$current_dir . '/columns/type-' . $column . '.php';
                     // if callback exists populate it column using cpt variable
                     if(file_exists($populate)) self::$cpt_v->columns()->populate($key, function($column, $post_id) use ($populate){ 
                         require $populate;
                     });
+
                 }
             }
             // if current custom post type has filters add it to cpt variable
