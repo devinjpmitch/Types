@@ -52,8 +52,10 @@ class ACF extends types {
             if(isset($acf_single['fields'])){
                 //foreach field
                 foreach($acf_single['fields'] as $key => $single_field){
+                    if(!isset($single_field['name'])) continue;
+                    $name = $single_field['name'];
                     // if no key for field create one
-                    if(!isset($single_field['key'])) $acf_single['fields'][$key]['key'] = Set::key('field_'.$type.'_'.$set_value);
+                    if(!isset($single_field['key'])) $acf_single['fields'][$key]['key'] = Set::key('field_'.$type.'_'.$set_value.'_'.$name);
                 }
             }
             // if location is not set then set it current post type or taxonomy
@@ -76,7 +78,7 @@ class ACF extends types {
             if(!isset($acf_single['show_in_rest'])) $acf_single['show_in_rest'] = 1;
 
 
-
+            
             // add single field group to acf
             acf_add_local_field_group($acf_single);
         }
