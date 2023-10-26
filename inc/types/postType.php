@@ -20,6 +20,12 @@ class PostType extends types {
                 isset(self::$current_cpt['type']['options']) ? self::$current_cpt['type']['options'] : [], 
                 isset(self::$current_cpt['type']['labels']) ? self::$current_cpt['type']['labels'] : [] 
             );
+            /**
+             * Saving to collection type
+             */
+            $collectionType = self::$cpt_v;
+            $collectionType->save = file_exists(self::$current_dir . '/save.php') ? self::$current_dir . '/save.php' : false;
+            self::$cptv_all[] = $collectionType;
             // if current custom post type has columns
             if(isset(self::$current_cpt['type']['columns'])){
                 // foreach hidden column hide column using cpt variable

@@ -38,6 +38,8 @@ class types {
     public static $current_cpt = array();
     // Custom Post Type Variable
     public static $cpt_v = false;
+    // All CPTV data
+    public static $cptv_all = array();
      // Taxonomy Type Variable
     public static $tax_v = false;
     public function __construct(){}

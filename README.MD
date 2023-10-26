@@ -20,6 +20,7 @@ This plugin uses [PostTypes](https://github.com/jjgrainger/PostTypes) to registe
 - Custom column loading
 - ACF loading
 - SVG Support
+- Save Function
 
 # Links
 
@@ -160,6 +161,21 @@ With Add you you define the Key and Value. the value is used for the label and k
 # Icon
 if you wish to use a custom SVG icon as your new Type icon you can add a new file to the Type folder you created ```icon.svg```  
 **Note: you the SVG must be named icon all lowercase.**
+
+# Save
+if you wish to perform an action on save you can do this by creating a `save.php` in the type folder
+the save.php has access to a few variables to help.
+Example
+```php
+/**
+ * @param $postid (Int) // Post ID
+ * @param $post_type (Object) // the current post type loaded this includes all options loaded by this plugin
+ * @param $post_data (Object) // the $_POST data sent to the server
+ * @param $post_meta (Object) // The Post Meta all santized and unserialised for ease of use.
+ */
+$post_data['post_title'] = $post_data['post_title'] . ' (Hello World)';
+update_post_meta($postid, 'post_title', $post_data['post_title']);
+```
 
 # Advanced Custom Fields
 Each type and Taxonomy extends the ability to have custom fields aserted to them. How types registers these is using specific namespacing within a specific ```acf/``` folder

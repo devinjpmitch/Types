@@ -1,20 +1,19 @@
 <?php
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
-
-//Require Types Classes
-require plugin_dir_path( __FILE__ ) . 'types/init.php';
-require plugin_dir_path( __FILE__ ) . 'types/load.php';
-require plugin_dir_path( __FILE__ ) . 'types/notice.php';
-require plugin_dir_path( __FILE__ ) . 'types/set.php';
-require plugin_dir_path( __FILE__ ) . 'types/finalize.php';
-require plugin_dir_path( __FILE__ ) . 'types/postType.php';
-require plugin_dir_path( __FILE__ ) . 'types/taxonomy.php';
-require plugin_dir_path( __FILE__ ) . 'types/acf.php';
-
-//Require Documentation
-require plugin_dir_path( __FILE__ ) . 'documentation.php';
-
+$load = array(
+    'types/init',
+    'types/load',
+    'types/notice',
+    'types/set',
+    'types/finalize',
+    'types/postType',
+    'types/taxonomy',
+    'types/acf',
+    'types/save',
+    'documentation'
+);
+foreach($load as $file) require plugin_dir_path( __FILE__ ) . $file . '.php';
 use MBC\inc\types as PLUGIN;
 /**
  * Types initilize method
