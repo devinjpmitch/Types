@@ -4,25 +4,17 @@ defined( 'ABSPATH' ) || exit;
 class Load extends types {
     public function __construct(){}
     public static function directory(){
-        // is Types a directory in stylesheet directory?
-        if(is_dir(self::$stylesheet_directory . '/types')){
-            // scan directory
-            $files = scandir(self::$stylesheet_directory . '/types');
-            //foreach file in directory
+        $directories = ['types','resources/types'];
+        foreach($directories as $directory){
+            if(!is_dir(self::$stylesheet_directory . '/' . $directory)) continue;
+            $files = scandir(self::$stylesheet_directory . '/' . $directory);
             foreach($files as $file){
-                // file is a directory and is not . or ..
-                if(is_dir(self::$stylesheet_directory . '/types/' . $file) && $file != '.' && $file != '..'){
-                    // set current directory
-                    self::$current_dir = self::$stylesheet_directory . '/types/' . $file;
-                    // set current directory uri
-                    self::$current_url = self::$stylesheet_url . '/types/' . $file;
-                    // load post type
+                if(is_dir(self::$stylesheet_directory . '/' . $directory . '/' . $file) && $file != '.' && $file != '..'){
+                    self::$current_dir = self::$stylesheet_directory . '/' . $directory . '/' . $file;
+                    self::$current_url = self::$stylesheet_url . '/' . $directory . '/' . $file;
                     PostType::load();
-                    // load taxonomy type
                     Taxonomy::load();
-                    // flush rewrite rules
                     Finalize::flush();
-                    // load notices
                     Notice::load();
                 }
             }
