@@ -10,7 +10,7 @@
  * Plugin Name:	   	Types
  * Plugin URI:		https://github.com/mitchell-b-chelin/Types/blob/main/LICENSE
  * Description:	   	A developer friendly Custom Post Type registration method.
- * Version:		   	1.0.5
+ * Version:		   	1.0.6
  * Author:			Mitchell-Blair Chelin
  * Author URI:		https://github.com/mitchell-b-chelin/
  * License:		   	MIT
