@@ -356,7 +356,7 @@ class Taxonomy
      */
     public function sortSortableColumns($query)
     {
-        $query_tax = $query->query_vars[‘taxonomy’]?? array();
+        $query_tax = $query->query_vars['taxonomy']?? array();
         // don't modify the query if we're not in the post type admin
         if (!is_admin() || !in_array($this->name, $query_tax)) {
             return;
