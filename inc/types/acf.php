@@ -22,15 +22,25 @@ class ACF extends types {
             case 'type':
             case 'cpt':
                 // load acf fields for type
-                $acf_json = @file_get_contents(self::$current_dir.'/acf/type-'.self::$current_cpt['type']['info']['name'].'-acf.json');
-                if(!$acf_json) $acf_json = @file_get_contents(self::$current_dir.'/acf/type-acf.json');
+                $type_json = self::$current_dir.'/acf/type-'.self::$current_cpt['type']['info']['name'].'-acf.json';
+                if(file_exists($type_json)){
+                    $acf_json = @file_get_contents($type_json);
+                } else {
+                    $std_json = self::$current_dir.'/acf/type-acf.json';
+                    if(file_exists($std_json)){
+                        $acf_json = @file_get_contents(self::$current_dir.'/acf/type-acf.json');
+                    }
+                }
                 break;
             // if taxonomy
             case 'tax':
                 // if name is not set return
                 if(!$name) return;
                 // load acf fields for taxonomy
-                $acf_json = @file_get_contents(self::$current_dir.'/acf/tax-'.$name.'-acf.json');
+                $tax_json = self::$current_dir.'/acf/tax-'.$name.'-acf.json';
+                if(file_exists($tax_json)){
+                    $acf_json = @file_get_contents(self::$current_dir.'/acf/tax-'.$name.'-acf.json');
+                }
                 break;
         }
         // if acf json is not set return
